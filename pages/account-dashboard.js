@@ -10,7 +10,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { nftaddress, nftmarketaddress } from "../config";
 
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
-import KBMarket from "../artifacts/contracts/KBMarket.sol/KBMarket.json";
+import Enjoymint from "../artifacts/contracts/Enjoymint.sol/Enjoymint.json";
 import Image from "next/image";
 export default function AccountDashBoard() {
   // array of nfts
@@ -34,7 +34,7 @@ export default function AccountDashBoard() {
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       nftmarketaddress,
-      KBMarket.abi,
+      Enjoymint.abi,
       signer
     );
     const data = await marketContract.fetchItemsCreated();
