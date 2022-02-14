@@ -10,7 +10,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { nftaddress, nftmarketaddress } from "../config";
 
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
-import Enjoymint from "../artifacts/contracts/Enjoymint.sol/Enjoymint.json";
+import KBMarket from "../artifacts/contracts/KBMarket.sol/KBMarket.json";
 import {
   CheckIcon,
   BadgeCheckIcon,
@@ -22,7 +22,7 @@ import {
 } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import PolgonLogo from "../public/images/polygon3.png";
-import Cover from "../public/images/Cover2.PNG";
+import Cover from "../public/images/Cover3.PNG";
 
 export default function Home() {
   const security = [
@@ -131,7 +131,7 @@ export default function Home() {
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       nftmarketaddress,
-      Enjoymint.abi,
+      KBMarket.abi,
       provider
     );
     const data = await marketContract.fetchMarketTokens();
@@ -169,7 +169,7 @@ export default function Home() {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(
       nftmarketaddress,
-      Enjoymint.abi,
+      KBMarket.abi,
       signer
     );
 
@@ -284,7 +284,8 @@ export default function Home() {
                             style={{ height: "50px" }}
                             className="text-2xl font-semibold  capitalize"
                           >
-                            {nft.name}
+                            {nft.name.substring(0, 10)}
+                            {nft.name.length > 20 ? "..." : ""}
                           </p>
                           <p className="text-xl mb-4 font-semibold text-gray-900  ">
                             {nft.price} ETH
@@ -327,14 +328,11 @@ export default function Home() {
                       />
                       <div className="flex flex-col items-between justify-center">
                         <div className="p-7 border-t border-5">
-                          <div className="flex justify-between items-center">
-                            <p
-                              style={{ height: "50px" }}
-                              className="text-2xl font-semibold  capitalize"
-                            >
+                          <div className="flex justify-between items-center mb-4">
+                            <p className="text-2xl font-semibold  capitalize">
                               {nft.name}
                             </p>
-                            <p className="text-xl mb-4 font-semibold text-gray-900  ">
+                            <p className="text-xl  font-semibold text-gray-900  ">
                               {nft.price} ETH
                             </p>
                           </div>
@@ -342,7 +340,7 @@ export default function Home() {
                           <div
                             style={{ minHeight: "20px", overflow: "hidden" }}
                           >
-                            <p className="">
+                            <p className=" pt-2">
                               <span className="font-medium pr-1">
                                 Description:
                               </span>
