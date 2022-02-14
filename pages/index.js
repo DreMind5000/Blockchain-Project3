@@ -22,7 +22,7 @@ import {
 } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import PolgonLogo from "../public/images/polygon3.png";
-import Cover from "../public/images/Cover3.PNG";
+import Cover from "../public/images/Cover2.PNG";
 
 export default function Home() {
   const security = [
