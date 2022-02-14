@@ -10,7 +10,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { nftaddress, nftmarketaddress } from "../config";
 
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
-import KBMarket from "../artifacts/contracts/KBMarket.sol/KBMarket.json";
+import Enjoymint from "../artifacts/contracts/Enjoymint.sol/Enjoymint.json";
 import {
   CheckIcon,
   BadgeCheckIcon,
@@ -126,12 +126,12 @@ export default function Home() {
     // ***provider, tokenContract, marketContract, data for our marketItems***
 
     const provider = new ethers.providers.JsonRpcProvider(
-      "https://matic-mumbai.chainstacklabs.com"
+      "https://polygon-rpc.com/"
     );
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       nftmarketaddress,
-      KBMarket.abi,
+      Enjoymint.abi,
       provider
     );
     const data = await marketContract.fetchMarketTokens();
@@ -169,7 +169,7 @@ export default function Home() {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(
       nftmarketaddress,
-      KBMarket.abi,
+      Enjoymint.abi,
       signer
     );
 
@@ -239,7 +239,7 @@ export default function Home() {
             <div className="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
               <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
                 {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
-                <Image src={Cover} height={580} width={600} quality={100} />
+                <Image src={Cover} height={580} width={600} />
               </div>
             </div>
           </div>
@@ -265,115 +265,58 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-4 pb-10">
             {nfts.map((nft, i) => (
               <>
-                <div className="relative cards">
-                  <div
-                    key={i}
-                    className=" border w-full shadow-lg rounded-2xl overflow-hidden "
-                  >
-                    <img
-                      onClick={() => {
-                        setActive(nft), setOpen(true);
-                      }}
-                      src={nft.image}
-                      className=" h-48 object-cover w-full bg-gray-200 "
-                    />
-                    <div className="flex flex-col items-between justify-center">
-                      <div className="p-7 border-t border-5">
-                        <div className="flex justify-between items-center">
-                          <p
-                            style={{ height: "50px" }}
-                            className="text-2xl font-semibold  capitalize"
-                          >
-                            {nft.name}
-                          </p>
-                          <p className="text-xl mb-4 font-semibold text-gray-900  ">
-                            {nft.price} ETH
-                          </p>
-                        </div>
+                <div
+                  key={i}
+                  className=" border w-full shadow-lg rounded-2xl overflow-hidden "
+                >
+                  <img
+                    onClick={() => {
+                      setActive(nft), setOpen(true);
+                    }}
+                    src={nft.image}
+                    className=" h-48 object-cover w-full bg-gray-200 "
+                  />
+                  <div className="p-7 border-t border-5">
+                    <div className="flex justify-between items-center">
+                      <p
+                        style={{ height: "50px" }}
+                        className="text-2xl font-semibold  capitalize"
+                      >
+                        {nft.name}
+                      </p>
+                      <p className="text-xl mb-4 font-semibold text-gray-900  ">
+                        {nft.price} Matic
+                      </p>
+                    </div>
 
-                        <div style={{ minHeight: "20px", overflow: "hidden" }}>
-                          <p className="">
-                            <span className="font-medium pr-1">
-                              Description:{" "}
-                            </span>
-                            {nft.description.substring(0, 20)}
-                            {nft.description.length > 20 ? "..." : ""}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="p-4 ">
-                        <button
-                          className="mb-2 w-full tracking-widest bg-indigo-700 text-white font-semibold py-3 px-12 rounded"
-                          onClick={() => buyNFT(nft)}
-                        >
-                          Buy
-                        </button>
-                      </div>
+                    <div style={{ height: "35px", overflow: "hidden" }}>
+                      <p className="">
+                        <span className="font-medium pr-1">Description: </span>
+                        {nft.description}
+                      </p>
                     </div>
                   </div>
-                  <div className=" tracking-wider cursor-pointer rounded-lg  absolute top-0  w-full z-50  hoverCards">
-                    <div
-                      style={{ background: "white" }}
-                      key={i}
-                      className="border w-full shadow-lg rounded-2xl  "
+                  <div className="h-14">
+                    {nft?.audio ? (
+                      <>
+                        <ReactAudioPlayer
+                          src={nft.audio}
+                          // autoPlay
+                          controls
+                          className="w-full"
+                        />
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="p-4 ">
+                    <button
+                      className="mb-2 w-full tracking-widest bg-indigo-700 text-white font-semibold py-3 px-12 rounded"
+                      onClick={() => buyNFT(nft)}
                     >
-                      <img
-                        onClick={() => {
-                          setActive(nft), setOpen(true);
-                        }}
-                        src={nft.image}
-                        className=" h-48 object-cover w-full bg-gray-200 "
-                      />
-                      <div className="flex flex-col items-between justify-center">
-                        <div className="p-7 border-t border-5">
-                          <div className="flex justify-between items-center">
-                            <p
-                              style={{ height: "50px" }}
-                              className="text-2xl font-semibold  capitalize"
-                            >
-                              {nft.name}
-                            </p>
-                            <p className="text-xl mb-4 font-semibold text-gray-900  ">
-                              {nft.price} ETH
-                            </p>
-                          </div>
-
-                          <div
-                            style={{ minHeight: "20px", overflow: "hidden" }}
-                          >
-                            <p className="">
-                              <span className="font-medium pr-1">
-                                Description:
-                              </span>
-                              {nft.description}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="">
-                          {nft?.audio ? (
-                            <>
-                              <ReactAudioPlayer
-                                src={nft.audio}
-                                // autoPlay
-                                controls
-                                className="w-full"
-                              />
-                            </>
-                          ) : (
-                            ""
-                          )}
-                        </div>
-                        <div className="p-4 ">
-                          <button
-                            className="mb-2 w-full tracking-widest bg-indigo-700 text-white font-semibold py-3 px-12 rounded"
-                            onClick={() => buyNFT(nft)}
-                          >
-                            Buy
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                      Buy
+                    </button>
                   </div>
                 </div>
               </>
