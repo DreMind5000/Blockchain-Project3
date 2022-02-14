@@ -131,7 +131,7 @@ export default function Home() {
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       nftmarketaddress,
-      KBMarket.abi,
+      Enjoymint.abi,
       provider
     );
     const data = await marketContract.fetchMarketTokens();
