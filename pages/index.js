@@ -10,7 +10,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { nftaddress, nftmarketaddress } from "../config";
 
 import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
-import KBMarket from "../artifacts/contracts/KBMarket.sol/KBMarket.json";
+import Enjoymint from "../artifacts/contracts/Enjoymint.sol/Enjoymint.json";
 import {
   CheckIcon,
   BadgeCheckIcon,
@@ -169,7 +169,7 @@ export default function Home() {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(
       nftmarketaddress,
-      KBMarket.abi,
+      Enjoymint.abi,
       signer
     );
 
