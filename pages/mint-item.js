@@ -148,7 +148,7 @@ export default function MintItem() {
                     Price
                   </label>
                   <input
-                    placeholder="Asset Price in Matic"
+                    placeholder="Asset Price in Eth"
                     className="bg-gray-100 p-3 shadow-sm block w-full sm:text-sm border border-gray-300 rounded-md focus:outline-none"
                     onChange={(e) =>
                       updateFormInput({ ...formInput, price: e.target.value })

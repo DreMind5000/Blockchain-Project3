@@ -31,7 +31,7 @@ function KryptoBirdMarketplace({ Component, pageProps }) {
       { name: " Privacy & Terms", href: "#" },
     ],
     company: [
-      { name: "Add NFT to MetaMask ", href: "https://www.enjoymint.digital/infographic" },
+      { name: "Help Center", href: "#" },
       { name: "Partners", href: "#" },
       { name: "Suggestions", href: "#" },
       { name: "Blog", href: "#" },
