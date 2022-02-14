@@ -288,7 +288,7 @@ export default function Home() {
                             {nft.name.length > 20 ? "..." : ""}
                           </p>
                           <p className="text-xl mb-4 font-semibold text-gray-900  ">
-                            {nft.price} ETH
+                            {nft.price} Matic
                           </p>
                         </div>
 

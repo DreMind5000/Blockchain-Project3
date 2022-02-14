@@ -239,12 +239,11 @@ function KryptoBirdMarketplace({ Component, pageProps }) {
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm font-semibold text-gray-500 tracking-wider uppercase">
-                    <p className="font-bold text-xl"> Enjoymint.digital</p>
+                    <p className="font-bold text-xl"> Enjoymint NFT Marketplace</p>
                   </h3>
                   <ul role="list" className="mt-4 space-y-2 ">
                     <li className="text-base text-gray-600 hover:text-gray-900">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Quis non, fugit totam vel laboriosam vitae.
+                    An exclusive digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and explore quality digital items.
                     </li>
                   </ul>
                 </div>
@@ -363,7 +362,7 @@ function KryptoBirdMarketplace({ Component, pageProps }) {
               ))}
             </div>
             <p className="mt-8 text-base text-indigo-500 md:mt-0 md:order-1">
-              &copy; 2020 Workflow, Inc. All rights reserved.
+              &copy; 2022 Enjoymint, Inc. All rights reserved.
             </p>
           </div>
         </div>
