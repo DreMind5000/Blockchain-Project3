@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cards:hover .hoverCards {
+    display: block !important;
+    transition: 1s;
+  }
+  .hoverCards {
+    display: none !important;
+    transition: all 0.25s ease-in-out;
+  }
