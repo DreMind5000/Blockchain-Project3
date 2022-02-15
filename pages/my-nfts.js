@@ -73,7 +73,7 @@ export default function MyAssets() {
                         </div>
                     </div>
                     <div className='p-4 bg-black'>
-                        <p className='text-3x-1 mb-4 font-bold text-white'>{nft.price} ETH</p>
+                        <p className='text-3x-1 mb-4 font-bold text-white'>{nft.price} Matic</p>
                       </div>
                 </div>
               ))

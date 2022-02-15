@@ -216,7 +216,7 @@ export default function Home() {
                 </h1>
 
                 <p className="mt-10 text-base text-gray-800 sm:text-xl lg:text-lg xl:text-xl">
-                  10,000 unique NTFs with proof of ownership living on the
+                  Exclusive NTFs with proof of ownership living on the
                   Polygon blockchain and following the ERC-721 standard, but
                   yeah, these are NFTs.{" "}
                 </p>
