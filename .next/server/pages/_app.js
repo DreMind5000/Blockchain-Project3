@@ -3234,7 +3234,7 @@ function KryptoBirdMarketplace({
                   className: "text-sm font-semibold text-gray-500 tracking-wider uppercase",
                   children: /*#__PURE__*/(0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxDEV)("p", {
                     className: "font-bold text-xl",
-                    children: " Enjoymint NFT Marketplace"
+                    children: " Enjoymint"
                   }, void 0, false, {
                     fileName: _jsxFileName,
                     lineNumber: 242,
